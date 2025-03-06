@@ -65,7 +65,7 @@
         <!-- MAIN CONTENT -->
         <article class="context" id="context">
 
-            <video muted autoplay loop playsinline>
+            <video controls muted autoplay loop playsinline>
                 <source src="https://startup.talentspot.ru/static/startup/img/compressed-anim.mp4" type="video/mp4">
             </video>
 
@@ -101,6 +101,18 @@
                 tryFullscreen();
             }
         });
+
+
+        const video = document.getElementById('background-video');
+        const overlay = document.getElementById('overlay');
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            video.play().catch(error => {
+                console.warn("Playback failed:", error);
+            });
+        });
+
     </script>
 
 </main>

@@ -26,7 +26,7 @@
 }
 
 .header img {
-    height: 22px;
+    height: 20px;
 }
 
 .container {
@@ -43,7 +43,6 @@
 
 .context {
     border-radius: 20px;
-    overflow: hidden;
     z-index: 100;
 }
 
