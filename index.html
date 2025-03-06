@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<!--[if lt IE 6 ]><html class="ie ie6" lang="ru" dir="ltr"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="ru" dir="ltr"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="ru" dir="ltr"> <![endif]-->
-<!--[if IE 9 ]><html class="ie ie9" lang="ru" dir="ltr"> <![endif]-->
-<!--[if IE 10 ]><html class="ie ie10" lang="ru" dir="ltr"> <![endif]-->
+<!--[if lt IE 6 ]>
+<html class="ie ie6" lang="ru" dir="ltr"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="ru" dir="ltr"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="ru" dir="ltr"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie ie9" lang="ru" dir="ltr"> <![endif]-->
+<!--[if IE 10 ]>
+<html class="ie ie10" lang="ru" dir="ltr"> <![endif]-->
 <!--[if (gte IE 11)|!(IE)]><!-->
 <html lang="ru" dir="ltr">
 <!--<![endif]-->
 <head>
     <!-- SEO -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
 
     <title>Энергомера</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta http-equiv="content-language" content="ru" />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="ashot.svazyan@yandex.ru" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta http-equiv="content-language" content="ru"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="author" content="ashot.svazyan@yandex.ru"/>
 
     <!-- LIBS -->
     <link
@@ -38,12 +43,12 @@
 
     <!-- STYLES -->
 
-    <link rel="stylesheet" href="./static/styles/vars.css" />
+    <link rel="stylesheet" href="./static/styles/vars.css"/>
 
-    <link rel="stylesheet" href="./static/styles/normalize.css" />
-    <link rel="stylesheet" href="./static/styles/wrapper.css" />
+    <link rel="stylesheet" href="./static/styles/normalize.css"/>
+    <link rel="stylesheet" href="./static/styles/wrapper.css"/>
     <link rel="stylesheet" href="static/styles/wrapper.css">
-    <link rel="stylesheet" href="./static/styles/media.css" />
+    <link rel="stylesheet" href="./static/styles/media.css"/>
 </head>
 <body>
 
@@ -54,13 +59,13 @@
 
         <!-- HEADER -->
         <header class="header" id="header">
-            <img src="static/img/logo.png" alt="" />
+            <img src="static/img/logo.png" alt=""/>
         </header>
 
         <!-- MAIN CONTENT -->
         <article class="context" id="context">
 
-            <video controls muted autoplay loop playsinline>
+            <video muted autoplay loop playsinline>
                 <source src="https://startup.talentspot.ru/static/startup/img/compressed-anim.mp4" type="video/mp4">
             </video>
 
@@ -68,11 +73,35 @@
 
         <!-- FOOTER -->
         <footer class="footer" id="footer">
-            <img src="static/img/128x128.png" alt="" />
+            <img src="static/img/128x128.png" alt=""/>
             TALENTSPOT
         </footer>
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.querySelector("video");
+
+            function tryFullscreen() {
+                if (window.innerWidth < 650 && video.requestFullscreen) {
+                    video.requestFullscreen().catch(err => console.warn("Ошибка при попытке открыть видео в фулскрин:", err));
+                } else if (window.innerWidth < 650 && video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (window.innerWidth < 650 && video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen()
+                } else if (window.innerWidth < 650 && video.msRequestFullscreen) {
+                    video.msRequestFullscreen();
+                }
+            }
+
+            video.addEventListener("play", tryFullscreen);
+
+            if (!video.paused) {
+                tryFullscreen();
+            }
+        });
+    </script>
 
 </main>
 
